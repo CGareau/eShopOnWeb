@@ -14,7 +14,7 @@ jobs:
   buildandtest:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
       with:
@@ -30,12 +30,12 @@ jobs:
         cd ${{env.DOTNET_ROOT}}/myapp
         zip -r ../app.zip .
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: .net-app
         path: ${{env.DOTNET_ROOT}}/app.zip
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: bicep-template
         path: ${{ env.TEMPLATE-FILE }}
